@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwl1akfs80ev2"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_2bipj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4nh01"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dr7ns"]
+radius = 58.443
+
+[node name="player" type="CharacterBody3D"]
+collision_mask = 4
+script = ExtResource("1_2bipj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_4nh01")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+priority = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_dr7ns")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47941, 0, -0.608123)
+size = Vector3(0.401, 0.412, 1.73902)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

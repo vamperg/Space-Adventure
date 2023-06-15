@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cuhpyi0oiclu5"]
+
+[ext_resource type="Shader" uid="uid://gqviw4bes8t6" path="res://cosmos.tres" id="1_k0kxl"]
+
+[resource]
+shader = ExtResource("1_k0kxl")
+shader_parameter/pixel = 352.0
